@@ -11,10 +11,31 @@ namespace PowerLine_TestTask
         public string Type { get; }
         public int MaxSpeed { get; }
         public int MaxFuel { get; }
-        public decimal Fuel { get; }
+
+        private decimal _Fuel;
+        public decimal Fuel
+        {
+            get => _Fuel;
+            set
+            {
+                if (value > 0 || value <= MaxFuel)
+                   _Fuel = value;
+                else throw new ArgumentException("Too many passenger or value is negative");
+            }
+        }
         public decimal AverageFuelConsumption { get; }
         public int MaxCountOfPassenger { get; }
-        public int CountOfPassenger { get; set; }
+
+        private int _CountOfPassenger;
+        public int CountOfPassenger
+        {
+            get => _CountOfPassenger;
+            set { 
+                if (value >= 0 || value <= MaxCountOfPassenger) 
+                    _CountOfPassenger = value; 
+                else throw new ArgumentException("Too many passenger or value is negative"); 
+            }
+        }
 
         public PassengerCar(string type, int maxSpeed, int fuel, int aveFuelCons)
         {
@@ -38,23 +59,13 @@ namespace PowerLine_TestTask
             MaxFuel = fuel;
             Fuel = fuel;
             AverageFuelConsumption = aveFuelCons;
-            MaxCountOfPassenger = countOfPass; 
+            MaxCountOfPassenger = countOfPass;
             CountOfPassenger = 0;
         }
 
         public decimal MaxWay() => MaxFuel / AverageFuelConsumption * 100;
-
-        public decimal PowerReserve() => (Fuel / AverageFuelConsumption * 100)*(1 - (decimal)0.06*CountOfPassenger);
-
+        public decimal PowerReserve() => (Fuel / AverageFuelConsumption * 100) * (1 - (decimal)0.06 * CountOfPassenger);
         public decimal RestOfWay() => Fuel / AverageFuelConsumption * 100;
-
         public int TravelTime(decimal way) => (int)(way / MaxSpeed * 60);
-
-        public void AddPassenger(int newPass = 1)
-        {
-            if (CountOfPassenger + newPass <= MaxCountOfPassenger)
-                CountOfPassenger += newPass;
-            else throw new ArgumentException("Too many passenger");
-        }
     }
 }
