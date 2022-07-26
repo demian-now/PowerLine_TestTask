@@ -10,16 +10,26 @@ namespace PowerLine_TestTask
     {
         string Type { get; }
         int MaxSpeed { get; }
-        decimal MaxFuel { get; }
+        int MaxFuel { get; }
         decimal Fuel { get; }
         decimal AverageFuelConsumption { get; }
 
         public decimal MaxWay();
-        //Returns the power reserve without taking into account the variables 
+        /// <summary>
+        /// Returns the power reserve without taking into account the variables 
+        /// </summary>
+        /// <returns></returns>
         public decimal RestOfWay();
-        //Returns the time in minutes needed to traverse the way
+        /// <summary>
+        /// Returns the time in minutes needed to traverse the way
+        /// </summary>
+        /// <param name="way"></param>
+        /// <returns></returns>
         public int TravelTime(decimal way);
-        //Returns the driving range taking into account the passengers and cargo
+        /// <summary>
+        /// Returns the driving range taking into account the passengers and cargo
+        /// </summary>
+        /// <returns></returns>
         public decimal PowerReserve();
     }
 }
