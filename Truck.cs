@@ -49,7 +49,7 @@ namespace PowerLine_TestTask
             AverageFuelConsumption = aveFuelCons;
         }
         public decimal MaxWay() => MaxFuel / AverageFuelConsumption * 100;
-        public decimal PowerReserve() => (Fuel / AverageFuelConsumption * 100)*(1-(decimal)0.04*(CargoWeight/200));
+        public decimal PowerReserve() => (Fuel / AverageFuelConsumption * 100) * (1 - (decimal)0.04 * (CargoWeight / 200));
         public decimal RestOfWay() => Fuel / AverageFuelConsumption * 100;
         public int TravelTime(decimal way) => (int)(way / MaxSpeed * 60);
     }

@@ -19,7 +19,7 @@ namespace PowerLine_TestTask
             set
             {
                 if (value > 0 || value <= MaxFuel)
-                   _Fuel = value;
+                    _Fuel = value;
                 else throw new ArgumentException("Too many passenger or value is negative");
             }
         }
@@ -30,10 +30,11 @@ namespace PowerLine_TestTask
         public int CountOfPassenger
         {
             get => _CountOfPassenger;
-            set { 
-                if (value >= 0 || value <= MaxCountOfPassenger) 
-                    _CountOfPassenger = value; 
-                else throw new ArgumentException("Too many passenger or value is negative"); 
+            set
+            {
+                if (value >= 0 || value <= MaxCountOfPassenger)
+                    _CountOfPassenger = value;
+                else throw new ArgumentException("Too many passenger or value is negative");
             }
         }
 
