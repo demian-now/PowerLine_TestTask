@@ -18,18 +18,18 @@ namespace PowerLine_TestTask
         /// <summary>
         /// Returns the power reserve without taking into account the variables 
         /// </summary>
-        /// <returns></returns>
+        /// <returns> km </returns>
         public decimal RestOfWay();
         /// <summary>
         /// Returns the time in minutes needed to traverse the way
         /// </summary>
         /// <param name="way"></param>
-        /// <returns></returns>
+        /// <returns> minute </returns>
         public int TravelTime(decimal way);
         /// <summary>
         /// Returns the driving range taking into account the passengers and cargo
         /// </summary>
-        /// <returns></returns>
+        /// <returns> km </returns>
         public decimal PowerReserve();
     }
 }

@@ -37,7 +37,7 @@ namespace PowerLine_TestTask
             }
         }
 
-        public PassengerCar(string type, int maxSpeed, int fuel, int aveFuelCons)
+        public PassengerCar(string type, int maxSpeed, int fuel, decimal aveFuelCons)
         {
             if (maxSpeed <= 0 || fuel <= 0 || aveFuelCons <= 0)
                 throw new ArgumentException("Params can't be negative or null");
@@ -50,7 +50,7 @@ namespace PowerLine_TestTask
             CountOfPassenger = 0;
         }
 
-        public PassengerCar(string type, int maxSpeed, int fuel, int aveFuelCons, int countOfPass)
+        public PassengerCar(string type, int maxSpeed, int fuel, decimal aveFuelCons, int countOfPass)
         {
             if (maxSpeed <= 0 || fuel <= 0 || aveFuelCons <= 0 || countOfPass < 0)
                 throw new ArgumentException("Params can't be negative or null");

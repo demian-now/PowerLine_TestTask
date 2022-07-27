@@ -28,7 +28,7 @@ namespace PowerLine_TestTask
 
         public decimal AverageFuelConsumption { get; }
 
-        public SportCar(string type, int maxSpeed, int fuel, int aveFuelCons)
+        public SportCar(string type, int maxSpeed, int fuel, decimal aveFuelCons)
         {
             if (maxSpeed <= 0 || fuel <= 0 || aveFuelCons <= 0)
                 throw new ArgumentException("Params can't be negative or null");
