@@ -1,0 +1,24 @@
+﻿ USE Shop;
+ GO
+ 
+ CREATE TABLE Client(
+	ClientID int NOT NULL PRIMARY KEY IDENTITY(1,1),
+	Name char(20) NOT NULL
+ );
+ GO
+
+  CREATE TABLE Orders(
+	OrderID int NOT NULL PRIMARY KEY IDENTITY(1,1),
+	ClientID int NOT NULL FOREIGN KEY(ClientID) REFERENCES Client(ClientID)
+ );
+ GO
+
+INSERT INTO Client VALUES ('Max'), ('Pavel'), ('Ivan'), ('Leonid');
+GO
+
+INSERT INTO Orders VALUES (2),(4);
+GO
+
+SELECT Customer = Client.Name
+FROM Client LEFT JOIN Orders ON Client.ClientID = Orders.ClientID
+WHERE OrderID IS NULL
